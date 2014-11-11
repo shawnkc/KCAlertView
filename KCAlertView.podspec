@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "KCAlertView"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A simple iOS8/iOS7 wrapper for UIAlertViewController/UIAlertView."
   s.homepage     = "https://github.com/shawnkc/KCAlertView"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
