@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = "ShawnKC"
   s.source       = { :git => "https://github.com/shawnkc/KCAlertView.git", :tag => s.version.to_s }
-  s.platform     = :ios, '8.0'
+  s.platform     = :ios
   s.source_files = 'KCAlertView.{h,m}'
   s.frameworks   = 'UIKit'
   s.requires_arc = true
