@@ -34,7 +34,7 @@
 
 @interface KCAlertView()
 
-@property (nonatomic, strong) NSArray *actions;
+@property (nonatomic, strong) NSArray *actions; // KCAlertAction
 
 @end
 
@@ -78,14 +78,17 @@
             [viewController presentViewController:alertController animated:TRUE completion:nil];
         });
     } else {
-        self.actions = actions;
-
         UIAlertView *alertView = [[UIAlertView alloc] init];
         alertView.delegate = self;
         alertView.title = title;
         alertView.message = message;
+        
+        // ALways put the cancel last
+        self.actions = [actions sortedArrayWithOptions:0 usingComparator:^NSComparisonResult(KCAlertAction *obj1, KCAlertAction *obj2) {
+            return (obj1.style == UIAlertActionStyleCancel) ? NSOrderedDescending : NSOrderedSame;
+        }];
 
-        for (KCAlertAction *action in actions) {
+        for (KCAlertAction *action in self.actions) {
             NSInteger index = [alertView addButtonWithTitle:action.title];
             
             if (action.style == UIAlertActionStyleCancel) {
